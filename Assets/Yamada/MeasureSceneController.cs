@@ -39,6 +39,6 @@ public class MeasureSceneController : MonoBehaviour {
 	}
 
 	public void OnClickReturnButton() {
-		// SceneManager.LoadScene("Oshima");
+		SceneManager.LoadScene("Oshima");
 	}
 }
