@@ -8,18 +8,14 @@ public class UsagiMove : MonoBehaviour {
 	private int AnimationNumber = 0;
 	private float time;
 	private float interval = 3.0f;
-	Animator _animator;
+	public static bool evolution = false;
+	
 	Rigidbody2D rb;
-	//private Vector2 v;
 	private Vector2 usagi_pos;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		_animator = GetComponent<Animator>();
-		_animator.Play("idle");
-		
-		//usagi_pos = transform.position; 
 	}
 	
 	// Update is called once per frame
@@ -30,9 +26,14 @@ public class UsagiMove : MonoBehaviour {
 			time = 0.0f;
 		}
 		//Debug.Log(AnimationNumber);
-
+		//Debug.Log(evolution);
+	if(evolution == true){
+		transform.position = new Vector2(375f,900f);
+		//evolution = false;
+	}else{
 		switch(AnimationNumber){
 			case 0:
+				usagi_pos = new Vector2(0.0f, 0.0f);
 				//print("idle");
 				break;
 			case 1:
@@ -52,12 +53,12 @@ public class UsagiMove : MonoBehaviour {
 				//print("left");
 				break;
 			default:
-            	//print ("else");
+            	print ("else");
             	break;
 		}
 	transform.Translate(usagi_pos);
-
 	Clamp();
+		}
 	}
 
 	void Clamp()
@@ -65,8 +66,6 @@ public class UsagiMove : MonoBehaviour {
         float x = Mathf.Clamp(transform.position.x, 10f, 740f); //x位置が常に範囲内か監視
 		float y = Mathf.Clamp(transform.position.y, 620f, 1200f);
 		transform.position = new Vector2(x,y);
-        //transform.Translate(usagi_pos); //範囲内であれば常にその位置がそのまま入る
-		//Debug.Log(transform.position);
     }
 
 }
