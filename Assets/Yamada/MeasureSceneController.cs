@@ -34,8 +34,10 @@ public class MeasureSceneController : MonoBehaviour {
 			if (Int32.Parse(t.name.Substring(6)) <= score) t.gameObject.SetActive(true);
 			else t.gameObject.SetActive(false);
 		}
+		Debug.Log("score = " + score);
 		pointText.text = "にんじんを " + score.ToString() + " ほん かくとくした！";
-		// NinzinCount += score;
+		UsagiEvolution.carrot += score;
+		Debug.Log("UsagiEvolution.carrot = " + UsagiEvolution.carrot);
 	}
 
 	public void OnClickReturnButton() {
