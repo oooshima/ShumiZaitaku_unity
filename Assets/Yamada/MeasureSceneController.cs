@@ -35,6 +35,7 @@ public class MeasureSceneController : MonoBehaviour {
 			else t.gameObject.SetActive(false);
 		}
 		pointText.text = "にんじんを " + score.ToString() + " ほん かくとくした！";
+		// NinzinCount += score;
 	}
 
 	public void OnClickReturnButton() {
