@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Oshima/Oshima.unity
+    guid: ecf75a5b0af19485a905de1b24f3268d
+  - enabled: 1
+    path: Assets/Yamada/Maesure.unity
+    guid: cd66da7f9dd104a7eadbefaee32fa7e5
