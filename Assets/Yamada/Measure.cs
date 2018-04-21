@@ -7,6 +7,7 @@ public class  Measure : MonoBehaviour
 {
 	int counter = 1;
 	int sum = 0;
+	int badSum = 0;
 	bool isEating = true;
 	bool isMoving = false;
 	float oldValy = 0.0f;
@@ -42,9 +43,19 @@ public class  Measure : MonoBehaviour
 		if (isMoving == false) 
 		{
 			counter++;
-			if (-1.0 < valy && valy < -0.8) 
+			if (0.8 < Mathf.Abs(valy) && Mathf.Abs(valy) < 1.0) 
 			{
 				sum += 1;
+			}
+			else {
+				badSum += 1;
+				if (badSum > 200) {
+					Debug.Log ("姿勢悪いよ");
+					Handheld.Vibrate();
+					if (SystemInfo.supportsVibration) print("振動対応");
+					else print("振動非対応");
+					badSum = 0;
+				}
 			}
 		}
 
