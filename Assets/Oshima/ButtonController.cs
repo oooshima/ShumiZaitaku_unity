@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour {
 
+	public static bool eatflag = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +22,7 @@ public class ButtonController : MonoBehaviour {
 	}
 
 	public void EatButton(){
+		eatflag = true;
 		Debug.Log("eat");
 	}
 }

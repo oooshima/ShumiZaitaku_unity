@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 840323458}
   - component: {fileID: 840323460}
   - component: {fileID: 840323459}
+  - component: {fileID: 840323461}
   m_Layer: 5
   m_Name: Usagi
   m_TagString: Untagged
@@ -413,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 221}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &840323455
@@ -446,7 +447,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 85848f8f7478f41b0a391f3b5deb3fac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a71874412884462db1ff28b99404ea8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -541,6 +542,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!114 &840323461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840323453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23093b8e3f9174ac185792282d0b3360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requireCarrot: 0100000001000000
 --- !u!1 &1284333209
 GameObject:
   m_ObjectHideFlags: 0

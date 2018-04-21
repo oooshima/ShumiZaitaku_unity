@@ -6,24 +6,46 @@ using UnityEngine.UI;
 public class UsagiEvolution : MonoBehaviour
 {
  public static int carrot;//これまで食べた人参
- public static int level;
+ public static int level = 0;
  public int[] requireCarrot = new int[]{ 1, 1 };
- //public Image[] img = new Image;//ここにレベル１〜３の3枚の画像を入れる
+ Animator _animator;
+ AnimatorClipInfo clipInfo;
+
 
  void Start ()
  {
-  DontDestroyOnLoad(this);
-  level = 0;
-  carrot = 0;
+	_animator = GetComponent<Animator>();
+	_animator.Play("idle");
+  	DontDestroyOnLoad(this);
  }
  void Update ()
  {
-  if (carrot == requireCarrot [level])
-  {
-   carrot = 0;
-   level++;
-   //Image img = transform.Find ("name").transform as Image;
-   //img.sprite = //ここに画像入れて〜
-  }
+	clipInfo = _animator.GetCurrentAnimatorClipInfo (0)[0];
+	if(ButtonController.eatflag == true){
+	 // if (carrot == requireCarrot [level]){
+		//  level++;
+	 // }
+	  	if(level == 1){
+			UsagiMove.evolution = true;
+			 _animator.SetInteger("count", 1);
+			if(clipInfo.clip.name == "JKidle"){
+				UsagiMove.evolution = false;
+				ButtonController.eatflag = false;
+			}
+		  }
+		if(level == 2){
+			UsagiMove.evolution = true;
+			_animator.SetInteger("count", 2);
+			if(clipInfo.clip.name == "OLidle"){
+				UsagiMove.evolution = false;
+				ButtonController.eatflag = false;				
+			}
+		}
+  	}
+
+  if(Input.GetKeyUp(KeyCode.UpArrow)){
+	  level++;
+	  Debug.Log(level);
+   }
  }
 }
