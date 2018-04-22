@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Iphone.vib;
 
 public class  Measure : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class  Measure : MonoBehaviour
 	bool isEating = true;
 	bool isMoving = false;
 	float oldValy = 0.0f;
+	AudioSource audioSource;
 
 	// [SerializeField] Text score;
 	// [SerializeField] Text score2;
@@ -25,6 +27,11 @@ public class  Measure : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+
+		if (isEating == false) 
+		{
+			return;
+		}
 		// 加速度センサの値を取得
 		float valx = Input.acceleration.x;
 		float valy = Input.acceleration.y;
@@ -49,11 +56,11 @@ public class  Measure : MonoBehaviour
 			}
 			else {
 				badSum += 1;
-				if (badSum > 200) {
+				if (badSum > 100) {
 					Debug.Log ("姿勢悪いよ");
-					Handheld.Vibrate();
-					if (SystemInfo.supportsVibration) print("振動対応");
-					else print("振動非対応");
+					VibrationPlugin.PlayVibration(0);
+					audioSource = gameObject.GetComponent<AudioSource>();
+					audioSource.Play ();
 					badSum = 0;
 				}
 			}
