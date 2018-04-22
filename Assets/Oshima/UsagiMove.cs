@@ -9,6 +9,11 @@ public class UsagiMove : MonoBehaviour {
 	private float time;
 	private float interval = 3.0f;
 	public static bool evolution = false;
+	public GameObject evolutionBack;
+	public GameObject eatButton;
+	public GameObject startButton;
+	public GameObject OyaText;
+	public GameObject ShinkaText;
 	
 	Rigidbody2D rb;
 	private Vector2 usagi_pos;
@@ -16,6 +21,7 @@ public class UsagiMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		evolutionBack.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -29,8 +35,16 @@ public class UsagiMove : MonoBehaviour {
 		//Debug.Log(evolution);
 	if(evolution == true){
 		transform.position = new Vector2(375f,900f);
-		//evolution = false;
+		evolutionBack.SetActive(true);
+		eatButton.SetActive(false);
+		startButton.SetActive(false);
 	}else{
+		evolutionBack.SetActive(false);
+		eatButton.SetActive(true);
+		startButton.SetActive(true);
+		ShinkaText.SetActive(false);
+		OyaText.SetActive(false);
+
 		switch(AnimationNumber){
 			case 0:
 				usagi_pos = new Vector2(0.0f, 0.0f);
@@ -67,5 +81,14 @@ public class UsagiMove : MonoBehaviour {
 		float y = Mathf.Clamp(transform.position.y, 620f, 1200f);
 		transform.position = new Vector2(x,y);
     }
+
+	public void Oya(){
+		OyaText.SetActive(true);
+	}
+
+	public void Shinka(){
+		OyaText.SetActive(false);
+		ShinkaText.SetActive(true);
+	}
 
 }
