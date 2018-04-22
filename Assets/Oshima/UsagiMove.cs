@@ -77,8 +77,8 @@ public class UsagiMove : MonoBehaviour {
 
 	void Clamp()
     {
-        float x = Mathf.Clamp(transform.position.x, 10f, 740f); //x位置が常に範囲内か監視
-		float y = Mathf.Clamp(transform.position.y, 620f, 1200f);
+        float x = Mathf.Clamp(transform.position.x, 30f, 710f); //x位置が常に範囲内か監視
+		float y = Mathf.Clamp(transform.position.y, 650f, 1100f);
 		transform.position = new Vector2(x,y);
     }
 
